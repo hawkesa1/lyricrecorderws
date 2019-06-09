@@ -27,7 +27,8 @@ public class MultiPartResource {
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	public String post(@FormDataParam("file") InputStream inputStream,
 			@FormDataParam("file") FormDataContentDisposition formDataContentDisposition) {
-		System.out.println(formDataContentDisposition.toString());
+		System.out.println("yo!");
+		System.out.println("hello:" + formDataContentDisposition.toString());
 
 		AudioFile audioFile = new AudioFile();
 		audioFile.setFileInputStream(inputStream);
