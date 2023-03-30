@@ -18,12 +18,11 @@ public class StartupListener implements ServletContextListener {
 		String serverResourcesLocation = System.getProperty("SERVER_RESOURCES_LOCATION");
 		String operatingSystem = System.getProperty("OPERATING_SYSTEM");
 
-		String lyricRecorderScripts = servletContextEvent.getServletContext()
-				.getRealPath("/WEB-INF/lyricRecorderScripts");
+		String lyricRecorderScripts = serverResourcesLocation + System.getProperty("file.separator") + "scripts";
 
 		Constants.SERVER_RESOURCES_LOCATION = serverResourcesLocation;
 		Constants.OPERATING_SYSTEM = operatingSystem;
-		Constants.SCRIPTS_ROOT = lyricRecorderScripts + System.getProperty("file.separator") + operatingSystem;
+		Constants.SCRIPTS_ROOT = lyricRecorderScripts + System.getProperty("file.separator");
 		Constants.FFMPEG_ROOT = serverResourcesLocation + System.getProperty("file.separator") + "ffmpeg";
 
 		if (operatingSystem.equals("WINDOWS")) {
